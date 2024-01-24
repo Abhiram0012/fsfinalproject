@@ -1,0 +1,519 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kong Hotel </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" type="text/css" href="{% static '//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700' %}">
+
+    <link rel="shortcut icon" href="{% static 'data:image/png;base64,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' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fancybox.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    
+    <header class="site-header js-site-header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="{% url 'index' %}">Kong Hotel</a></div>
+          <div class="col-6 col-lg-8">
+
+
+            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            
+
+            <div class="site-navbar js-site-navbar">
+              <nav role="navigation">
+                <div class="container">
+                  <div class="row full-height align-items-center">
+                    <div class="col-md-6 mx-auto">
+                      <ul class="list-unstyled menu">
+                        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'rooms' %}">Rooms</a></li>
+                        <li><a href="{% url 'events' %}">Events</a></li>                       
+                        <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+
+    <section class="site-hero overlay" style="background-image: url(https://media.istockphoto.com/id/1448506100/photo/male-hotel-receptionist-assisting-female-guest.webp?b=1&s=170667a&w=0&k=20&c=Bfsq2S6nkZECLcXAAyen-EAvgeAXIxC4IcfJsj8llO4=)" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+          <div class="col-md-10 text-center" data-aos="fade-up">
+            <h2><span class="custom-caption text-uppercase text-white d-block  mb-3">Welcome To our Hotel</span></h2>
+            <h1 class="heading">A Best Place To Stay</h1>
+          </div>
+        </div>
+      </div>
+
+      <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </div>
+      </a>
+    </section>
+    
+
+    <section class="section bg-light pb-0"  >
+      <div class="container">
+       
+        <div class="row check-availabilty" id="next">
+          <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+
+            <form action="#">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                  <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="icon-calendar"></span></div>
+                    <input type="text" id="checkin_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                  <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="icon-calendar"></span></div>
+                    <input type="text" id="checkout_date" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                  <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="adults" class="font-weight-bold text-black">Adults</label>
+                      <div class="field-icon-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="adults" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label for="children" class="font-weight-bold text-black">Children</label>
+                      <div class="field-icon-wrap">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="children" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 align-self-end">
+                  <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
+            <figure class="img-absolute">
+              <img src="https://media.istockphoto.com/id/814094026/photo/breakfast-at-hotel.jpg?s=1024x1024&w=is&k=20&c=TgeStdC6jCefNr33PurrN-c-ayMpVE1sAyEHq-QDWTA=" alt="Image" class="img-fluid">
+            </figure>
+            <img src="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image" class="img-fluid rounded">
+          </div>
+          <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
+            <h2 class="heading">Welcome!</h2>
+            <p class="mb-4">At <b>Kong Hotel</b>, we are delighted to extend a heartfelt welcome to our cherished guests. Nestled in Hyderabad, our hotel is more than just a place to stay – it's an experience designed to make your visit memorable.</p>
+            <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a></p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading" data-aos="fade-up">Rooms &amp; Suites</h2>
+            <p data-aos="fade-up" data-aos-delay="100">At <b>Kong Hotel</b>, we understand that a good night's sleep and a comfortable stay are paramount. Our commitment to excellence ensures that every guest enjoys a memorable experience in our thoughtfully designed and meticulously maintained rooms.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <a href="#" class="room">
+              <figure class="img-wrap">
+                <img src="https://media.istockphoto.com/id/1436893547/photo/young-asian-traveler-woman-with-luggage-and-straw-hat-in-hotel-room-after-check-in-travel-and.jpg?s=1024x1024&w=is&k=20&c=MxZ2c3C9X6cHDMrcF8VW9PtlKf2I2kcxuCSKplQk87o=" alt="Free website template" class="img-fluid mb-3">
+              </figure>
+              <div class="p-3 text-center room-info">
+                <h2>Single Room</h2>
+                <span class="text-uppercase letter-spacing-1">RS.1200 / per night</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <a href="#" class="room">
+              <figure class="img-wrap">
+                <img src="https://media.istockphoto.com/id/1153667120/photo/interior-of-a-luxury-hotel-bedroom.jpg?s=1024x1024&w=is&k=20&c=dh4P4sueKWBywiJ9VumLKJN4qewDg2iuLoF8BIvaiCk=" alt="Free website template" class="img-fluid mb-3">
+              </figure>
+              <div class="p-3 text-center room-info">
+                <h2>Family Room</h2>
+                <span class="text-uppercase letter-spacing-1">RS.2500 / per night</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <a href="#" class="room">
+              <figure class="img-wrap">
+                <img src="https://media.istockphoto.com/id/503017298/photo/decoration-and-furniture-in-living-room-outside-modern-bedroom.jpg?s=1024x1024&w=is&k=20&c=9CBhrtP7Wtu4-yOKNd-Q_PH9aEh2BZIcajClk6QErnY=" alt="Free website template" class="img-fluid mb-3">
+              </figure>
+              <div class="p-3 text-center room-info">
+                <h2>Presidential Room</h2>
+                <span class="text-uppercase letter-spacing-1">RS.4000 / per night</span>
+              </div>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="section slider-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading" data-aos="fade-up">Photos</h2>
+            <p data-aos="fade-up" data-aos-delay="100"></p></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="slider-item">
+                <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://s1.1zoom.me/b5050/179/301986-frederika_1920x1080.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://wallpaperfx.com/view_image/luxurious-hotel-room-1920x1080-wallpaper-11239.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://s1.1zoom.me/b5050/744/330559-moril_1920x1080.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-4.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://i.redd.it/dr5cbbya3md01.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-5.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://i.pinimg.com/736x/89/f4/73/89f473b9f5d54dce0359d9d1f6d57cd7.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-6.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://www.hilakeville.com/wp-content/uploads/2017/12/1920x1080-Main-Lobby.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+              <div class="slider-item">
+                <a href="images/slider-7.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="https://www.listonegiordano.com/wp-content/uploads/2020/05/Hotel_burgenstock_hospitality_parquet_D_1920x1080.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </div>
+            </div>
+            
+          </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="section bg-image overlay" style="background-image: url(https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2339%2Ftrend20190314094348.jpg)">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading text-white" data-aos="fade"><b>Kong Hotel</b> Dining Experience</h2>
+            <p class="text-white" data-aos="fade" data-aos-delay="100">Welcome to the culinary delights of <b>KONG Hotel</b>. Our restaurant is a haven for food enthusiasts, where each dish is a masterpiece crafted with passion and precision. Explore our menu and indulge in a gastronomic journey that promises to tantalize your taste buds.</div>
+        </div>
+        <div class="food-menu-tabs" data-aos="fade">
+          <ul class="nav nav-tabs mb-5" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active letter-spacing-2" id="mains-tab" data-toggle="tab" href="#mains" role="tab" aria-controls="mains" aria-selected="true">Mains</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link letter-spacing-2" id="desserts-tab" data-toggle="tab" href="#desserts" role="tab" aria-controls="desserts" aria-selected="false">Desserts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link letter-spacing-2" id="drinks-tab" data-toggle="tab" href="#drinks" role="tab" aria-controls="drinks" aria-selected="false">Drinks</a>
+            </li>
+          </ul>
+          <div class="tab-content py-5" id="myTabContent">
+            
+            
+            <div class="tab-pane fade show active text-left" id="mains" role="tabpanel" aria-labelledby="mains-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.200</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Panner Tikka Masala</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.350</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Fish Moilee</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.450</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Safed Gosht</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.250</span>
+                    <h3 class="text-white"><a href="#" class="text-white">French Toast Combo</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.100</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Vegie Omelet</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.200</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Chorizo &amp; Egg Omelet</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                </div>
+              </div>
+              
+
+            </div> 
+
+            <div class="tab-pane fade text-left" id="desserts" role="tabpanel" aria-labelledby="desserts-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.100</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Banana Split</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.150</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Sticky Toffee Pudding</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.250</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Butter panner</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.100</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Apple Strudel</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.125</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Pancakes</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.100</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Ice Cream Sundae</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="tab-pane fade text-left" id="drinks" role="tabpanel" aria-labelledby="drinks-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.30</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Spring Water</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.40</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Coke, Diet Coke, Coke Zero</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.60</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Orange Fanta</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.90</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Lemonade, Lemon Squash</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.50</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Sparkling Mineral Water</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                  <div class="food-menu mb-5">
+                    <span class="d-block text-primary h4 mb-3">RS.70</span>
+                    <h3 class="text-white"><a href="#" class="text-white">Lemon, Lime &amp; Bitters</a></h3>
+                    <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section blog-post-entry bg-light">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-7">
+            <h2 class="heading" data-aos="fade-up">Events</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="media media-custom d-block mb-4 h-100">
+              <a href="#" class="mb-4 d-block"><img src="https://media.istockphoto.com/id/1436893547/photo/young-asian-traveler-woman-with-luggage-and-straw-hat-in-hotel-room-after-check-in-travel-and.jpg?s=1024x1024&w=is&k=20&c=MxZ2c3C9X6cHDMrcF8VW9PtlKf2I2kcxuCSKplQk87o=" alt="Image placeholder" class="img-fluid">
+                <div class="media-body">
+                <span class="meta-post">February 26, 2024</span>
+                <h2 class="mt-0 mb-3"><a href="#">Travel Hacks to Make Your Flight More Comfortable</a></h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
+            <div class="media media-custom d-block mb-4 h-100">
+              <a href="#" class="mb-4 d-block"><img src="https://s1.1zoom.me/b5050/744/330559-moril_1920x1080.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <div class="media-body">
+                <span class="meta-post">February 26, 2024</span>
+                <h2 class="mt-0 mb-3"><a href="#">5 Job Types That Aallow You To Earn As You Travel The World</a></h2>
+                <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
+            <div class="media media-custom d-block mb-4 h-100">
+              <a href="#" class="mb-4 d-block"><img src="https://www.hilakeville.com/wp-content/uploads/2017/12/1920x1080-Main-Lobby.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <div class="media-body">
+                <span class="meta-post">February 26, 2024</span>
+                <h2 class="mt-0 mb-3"><a href="#">30 Great Ideas On Gifts For Travelers</a></h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. t is a paradisematic country, in which roasted parts of sentences.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-image overlay" style="background-image: url(https://media.istockphoto.com/id/1448506100/photo/male-hotel-receptionist-assisting-female-guest.webp?b=1&s=170667a&w=0&k=20&c=Bfsq2S6nkZECLcXAAyen-EAvgeAXIxC4IcfJsj8llO4=);">
+        <div class="container" >
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
+              <h2 class="text-white font-weight-bold">A Best Place To Stay.</h2>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+              <a href="reservation.html" class="btn btn-outline-white-primary py-3 text-white px-5">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <footer class="section footer-section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-3 mb-5">
+            <ul class="list-unstyled link">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+             <li><a href="#">Rooms</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-5">
+            <ul class="list-unstyled link">
+              <li><a href="#">The Rooms &amp; Suites</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Restaurant</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-5 pr-md-5 contact-info">
+            
+            <p><span class="d-block"><span class="ion-ios-location h5 mr-3 text-primary"></span>Address:</span> <span> Survey No. 1050, Balanagar Mandal, <br> Rd Number 3, Kukatpally Housing Board Colony,<br> Kukatpally, Hyderabad <br>Telangana 500072.</span></p>
+            <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span>Phone:</span> <span> +91 8074251345</span></p>
+            <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> Konghotel@info.com</span></p>
+          </div>
+          
+          <div class="col-md-3 mb-5 ">
+            <p>Project_team-4</p>
+           
+              <p>A.Nikhil</p>
+              <p>J.Bhupathi</p>
+              <p>D.Abhiram</p>
+              <p>A.Nadhini</p>
+          
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    
+    
+    <script src="{% static 'js/aos.js' %}"></script>
+    
+    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script> 
+    <script src="{% static 'js/jquery.timepicker.min.js' %}"></script> 
+
+    
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
